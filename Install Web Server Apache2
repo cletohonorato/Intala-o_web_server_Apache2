@@ -1,0 +1,33 @@
+# SCRIPT PARA INSTALAÇÃO DE SERVIDOR WEB COM APACHE2
+
+#!/bin/bash
+
+echo "Realizando instação do Apache2"
+
+apt update -y
+
+apt upgrade -y
+
+apt install Apache2 -y
+
+apt install unzip -y
+
+# REMOVENDO ARQUIVO INDEX.HTML PADRAO
+
+rm /var/www/html/index.html
+
+# BAIXANDO DO REPOSOTORIO DO DENILSON BONATTI (https://github.com/denilsonbonatti)
+
+echo "Baixando e copiando os arquivos da aplicação..."
+
+cd /tmp
+
+wget https://github.com/denilsonbonatti/linux-site-dio/archive/refs/heads/main.zip
+
+unzip main.zip
+
+cd linux-site-dio-main
+
+cp -R * /var/www/html/
+
+#REALIZAR TESTES DE ACESSO NO IP DO SERVIDOR WEB E CERTIFICAR DO ACESSO A PAGINA WEB.
